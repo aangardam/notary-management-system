@@ -33,7 +33,7 @@ export function NavMain({ items }: { items: MenuItem[] }) {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>DompetKU</SidebarGroupLabel>
+      <SidebarGroupLabel>Notary Management System</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const isParentActive =

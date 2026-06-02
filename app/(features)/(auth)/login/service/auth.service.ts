@@ -9,7 +9,7 @@ export const login = async (email: string, password: string) => {
         email,
         password,
     });
-    console.log('authData ', authData?.user?.id);
+    
     if (authError) throw authError;
 
     const { data: profileData, error: profileError } = await supabase
@@ -19,9 +19,6 @@ export const login = async (email: string, password: string) => {
         .maybeSingle();
 
     if (profileError) throw profileError;
-
-    console.log('profileData', profileData);
-    console.log('profileError', profileError);
 
     return {
         ...authData,

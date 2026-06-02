@@ -70,13 +70,13 @@ const SidebarMenu = ({ menu, isOpen }: SidebarMenuProps) => {
     const wrapperClass = `
       mt-3 relative transition 
       ${isOpen ? 'px-3 py-1' : 'px-1 py-1'} 
-      ${isActive ? 'bg-blue-600 rounded-lg' : ''} 
+      ${isActive ? 'bg-emerald-600 rounded-lg' : ''} 
       group
     `;
 
     const contentClass = `
       flex items-center justify-between w-full rounded-md transition-colors 
-      hover:bg-blue-600 px-2 py-2 cursor-pointer
+      hover:bg-emerald-600 px-2 py-2 cursor-pointer
     `;
 
     return (
@@ -93,7 +93,7 @@ const SidebarMenu = ({ menu, isOpen }: SidebarMenuProps) => {
             <div className="flex items-center space-x-5">
               {renderIconBox(item.icon)}
               <h1
-                className={`text-white text-sm md:text-lg font-medium cursor-pointer w-full ${
+                className={`text-white text-sm md:text-md font-medium cursor-pointer w-full ${
                   isOpen ? '' : 'hidden'
                 }`}
               >
@@ -105,7 +105,7 @@ const SidebarMenu = ({ menu, isOpen }: SidebarMenuProps) => {
               <div className="flex items-center space-x-5">
                 {renderIconBox(item.icon)}
                 <h1
-                  className={`text-white text-sm md:text-lg font-medium cursor-pointer w-full ${
+                  className={`text-white text-sm md:text-md font-medium cursor-pointer w-full ${
                     isOpen ? '' : 'hidden'
                   }`}
                 >
@@ -116,7 +116,7 @@ const SidebarMenu = ({ menu, isOpen }: SidebarMenuProps) => {
           )}
           {item.subMenu && item.subMenu.length > 0 && isOpen && (
             <ChevronRight
-              className={`duration-300 text-white text-sm md:text-lg transition-transform ${
+              className={`duration-300 text-white text-sm md:text-md transition-transform ${
                 subMenuVisible[path] ? 'rotate-90' : ''
               }`}
             />

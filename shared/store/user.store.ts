@@ -36,8 +36,14 @@ export const useUserStore = create<UserState>()(
             setToken: (token: string) => set({ token }),
             setLastSignIn: (lastSignIn: string) => set({ lastSignIn }),
             logout: () => {
+                set({
+                    user: null,
+                    token: null,
+                    role: null,
+                    lastSignIn: null,
+                });
+
                 localStorage.removeItem('user-storage');
-                
             },
         }),
         {
@@ -45,7 +51,14 @@ export const useUserStore = create<UserState>()(
             storage: {
                 getItem: (name) => {
                     const data = localStorage.getItem(name);
-                    return decrypt(data!);
+
+                    if (!data) return null;
+
+                    try {
+                        return decrypt(data);
+                    } catch {
+                        return null;
+                    }
                 },
                 setItem: (name, value) => {
                     localStorage.setItem(name, encrypt(value));

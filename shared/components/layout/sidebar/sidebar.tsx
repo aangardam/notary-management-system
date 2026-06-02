@@ -8,6 +8,7 @@ import SidebarMenu from "./sidebar-menu"
 import { useRouter } from "next/navigation"
 import { useUserStore } from "@/shared/store/user.store"
 import { useQueryClient } from "@tanstack/react-query"
+import { Scale } from "lucide-react"
 
 const Sidebar = () => {
   const queryClient = useQueryClient();
@@ -43,26 +44,28 @@ const Sidebar = () => {
         className={`
           fixed inset-y-0 left-0 z-30 
           flex flex-col
-          bg-gradient-to-r from-[#001a33] to-[#002b4d] 
+          bg-linear-to-r from-[#001a33] to-[#002b4d] 
           text-white overflow-y-auto 
           transition-all duration-300 ease-in-out 
           scrollbar-hide lg:relative 
-          ${sidebarOpen ? "translate-x-0 w-72" : "-translate-x-full lg:translate-x-0 lg:w-24"}
+          ${sidebarOpen ? "translate-x-0 w-64" : "-translate-x-full lg:translate-x-0 lg:w-24"}
         `}
       >
         {/* Header */}
         <div className={`flex items-center p-6  ${!sidebarOpen ? "justify-center" : ""}`}>
             <div className="bg-white rounded-full p-1 w-10 h-10 flex items-center justify-center mr-2">
-                <Image
-                    src="/icon.png"
-                    alt="logo"
-                    width={50}
-                    height={10}
-                    className="object-contain"
-                />
+                <Scale className="h-6 w-6 text-green-700" />
             </div>
             {sidebarOpen && (
-                <h1 className="text-white font-semibold text-2xl whitespace-nowrap">dompet<span className="font-bold">KU</span></h1>
+              <div>
+                <p className="font-semibold text-lg">
+                  NMS
+                </p>
+
+                <p className="text-xs text-slate-300">
+                  Notary Management
+                </p>
+              </div>
             )}
         </div>
 
@@ -84,7 +87,7 @@ const Sidebar = () => {
           <Separator className="bg-white/10 my-2" />
           <button
             onClick={handleLogout}
-            className="flex items-center w-full px-4 py-2 gap-3 rounded-md hover:bg-blue-600 transition-colors"
+            className="flex items-center w-full px-4 py-2 gap-3 rounded-md hover:bg-red-600/20 hover:text-red-300 transition-colors"
           >
             <FaSignOutAlt className="w-5 h-5 text-white" />
             {sidebarOpen && (

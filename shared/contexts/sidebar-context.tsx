@@ -19,9 +19,11 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const checkScreenSize = () => {
       if (window.innerWidth < 1024) {
-        setSidebarOpen(false)
+        setSidebarOpen(false);
+      } else {
+        setSidebarOpen(true);
       }
-    }
+    };
 
     checkScreenSize()
     window.addEventListener("resize", checkScreenSize)
@@ -29,7 +31,10 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("resize", checkScreenSize)
   }, [])
 
-  const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
+  // const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
+  const toggleSidebar = () => {
+    setSidebarOpen((prev) => !prev);
+  };
 
   return (
     <SidebarContext.Provider value={{

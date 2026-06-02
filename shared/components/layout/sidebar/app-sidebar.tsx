@@ -2,21 +2,10 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
   LayoutDashboard,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
-import { NavProjects } from "./nav-projects"
 import { NavUser } from "./nav-user"
 import { TeamSwitcher } from "./team-switcher"
 import {
@@ -41,31 +30,7 @@ const data = {
       url: "/dashboard",
       icon: LayoutDashboard,
     },
-    {
-      title: "Master",
-      url: "#",
-      icon: SquareTerminal,
-      items: [
-        {
-          title: "Wallets",
-          url: "/master/wallets",
-        },
-        {
-          title: "Allocation",
-          url: "#",
-          items: [
-            {
-              title: "Category",
-              url: "/master/allocation/category",
-            },
-            {
-              title: "Monthly",
-              url: "/master/allocation/monthly",
-            }
-          ]
-        }
-      ],
-    },
+   
     
   ],
 }
