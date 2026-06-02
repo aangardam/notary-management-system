@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+
 import { FaSignOutAlt } from "react-icons/fa"
 import { Separator } from "../../ui/separator"
 import useSidebarCustom from "@/shared/hooks/use-sidebar"

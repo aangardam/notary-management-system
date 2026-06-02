@@ -1,4 +1,6 @@
-import { supabase } from "../lib/supabase-client";
+import { createClient } from "@/shared/lib/supabase/client";
+
+const supabase = createClient();
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface GetTableOptions {

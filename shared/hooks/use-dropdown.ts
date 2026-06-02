@@ -8,14 +8,14 @@ const useDropdown = (type?: string) => {
     const { data: dropdownBudgeting, isPending: isPendingBudgeting } = useQuery({
         queryKey: ['dropdown-budgeting'],
         queryFn: () => getDropdownBudgeting(),
-        select: ( data ) => data.map((item) => ({ value: `${item.id}`, label: item.name })),
+        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
     });
 
     //dropdown category
     const { data: dropdownCategory, isPending: isPendingCategory } = useQuery({
         queryKey: ['dropdown-category'],
         queryFn: () => getDropdownCategory(),
-        select: ( data ) => data.map((item) => ({ value: `${item.id}`, label: item.name })),
+        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
         
     });
 
@@ -46,7 +46,7 @@ const useDropdown = (type?: string) => {
     const { data: dropdownWallet, isPending: isPendingWallet } = useQuery({
         queryKey: ['dropdown-wallet'],
         queryFn: () => getDropdownWallet(),
-        select: ( data ) => data.map((item) => ({ value: `${item.id}`, label: item.name })),
+        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
     });
 
     const isPendingCategoryByType = false;

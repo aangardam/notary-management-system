@@ -60,7 +60,7 @@ export function CellAction<T extends HasId>(props: FormDialogGlobalProps<T>) {
   const handleDelete = () => {
     console.log("delete", row?.id)
     if (mutateDelete) {
-      mutateDelete({ id: Number(row?.id) });
+      // mutateDelete({ id: Number(row?.id) });
     } else {
       console.warn("Delete handler not found for", deleteActionType);
     }
