@@ -12,87 +12,115 @@ import useLogin from "../hooks/use-login";
 const FormLogin = () => {
   const { form, handleSubmit, isLoading } = useLogin();
 
-    return (
-    <div className="w-full rounded-xl bg-white p-8 shadow-lg">
+  return (
+    <div
+      className="
+        w-full
+        rounded-3xl
+        border
+        border-slate-200
+        bg-white/90
+        p-5
+        shadow-[0_15px_40px_rgba(0,0,0,0.08)]
+        backdrop-blur-md
+        md:p-8
+      "
+    >
+      <div className="mb-8">
         <div
-            className="
-                mb-6
-                h-1.5
-                w-20
-                rounded-full
-                bg-linear-to-r
-                from-emerald-700
-                to-emerald-400
-            "
+          className="
+            mb-5
+            h-1.5
+            w-20
+            rounded-full
+            bg-linear-to-r
+            from-emerald-700
+            to-emerald-400
+          "
         />
 
         <h1
-            className="
-                font-heading
-                text-4xl
-                font-semibold
-                text-slate-900
-            "
+          className="
+            font-heading
+            text-3xl
+            font-semibold
+            tracking-tight
+            text-slate-900
+            md:text-4xl
+          "
         >
-            Welcome back
+          Welcome back
         </h1>
 
-        <p className="mt-3 text-slate-500 mb-3">
-            Sign in to continue to your account
+        <p className="mt-3 text-sm text-slate-500 md:text-base">
+          Sign in to continue to your account
         </p>
+      </div>
 
-        <Form {...form}>
-            <form
-                onSubmit={form.handleSubmit(handleSubmit)}
-                className="space-y-6"
-            >
-                <FormInput
-                    name="email"
-                    label="Email Address"
-                    placeholder="admin@mail.com"
-                    control={form.control}
-                />
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="space-y-5"
+        >
+          <FormInput
+            name="email"
+            label="Email Address"
+            placeholder="admin@mail.com"
+            control={form.control}
+          />
 
-                <FormInput
-                    name="password"
-                    label="Password"
-                    type="password"
-                    isPassword
-                    placeholder="••••••••"
-                    control={form.control}
-                />
+          <FormInput
+            name="password"
+            label="Password"
+            type="password"
+            isPassword
+            placeholder="••••••••"
+            control={form.control}
+          />
 
-                <Button
-                    type="submit"
-                    isLoading={isLoading}
-                    disabled={isLoading}
-                    className="
-                        h-12
-                        w-full
-                        rounded-xl
-                        bg-emerald-700
-                        text-white
-                        shadow-lg
-                        transition-all
-                        duration-300
-                        hover:bg-emerald-800
-                        hover:shadow-xl
-                        hover:scale-[1.01]
-                    "
-                >
-                    <LogIn className="h-4 w-4 mr-3" />
-                    Login
-                </Button>
+          <Button
+            type="submit"
+            isLoading={isLoading}
+            disabled={isLoading}
+            className="
+              h-12
+              w-full
+              rounded-xl
+              bg-emerald-700
+              text-white
+              shadow-lg
+              transition-all
+              duration-300
+              hover:scale-[1.01]
+              hover:bg-emerald-800
+              hover:shadow-xl
+            "
+          >
+            {!isLoading && <LogIn className="mr-2 h-4 w-4" />}
+            Login
+          </Button>
 
-                <div className="flex items-center justify-center gap-2 pt-2 text-sm text-slate-500">
-                    <ShieldCheck className="h-4 w-4" />
+          <div
+            className="
+              flex
+              items-center
+              justify-center
+              gap-2
+              pt-2
+              text-center
+              text-xs
+              text-slate-500
+              md:text-sm
+            "
+          >
+            <ShieldCheck className="h-4 w-4 shrink-0" />
 
-                    <span>
-                    Secure access to your notary management system
-                    </span>
-                </div>
-            </form>
-        </Form>
+            <span>
+              Secure access to your notary management system
+            </span>
+          </div>
+        </form>
+      </Form>
     </div>
   );
 };
