@@ -11,7 +11,7 @@ import { AlertDialogDelete } from "./alert-dialog-delete";
 
 
 interface HasId {
-  id: string | number;
+  id: string;
 }
 
 interface FormDialogGlobalProps<T> {
@@ -60,7 +60,7 @@ export function CellAction<T extends HasId>(props: FormDialogGlobalProps<T>) {
   const handleDelete = () => {
     console.log("delete", row?.id)
     if (mutateDelete) {
-      // mutateDelete({ id: Number(row?.id) });
+      mutateDelete({ id: `${row?.id}` });
     } else {
       console.warn("Delete handler not found for", deleteActionType);
     }
