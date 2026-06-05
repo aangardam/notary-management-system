@@ -52,19 +52,20 @@ const useSidebarCustom = () => {
             parentId: 0,
             subMenu: [
                 {
+                    id: 6,
+                    name: " Document Types",
+                    url: "/document/types",
+                    icon: "",
+                    parentId: 4,
+                },
+                {
                     id: 5,
                     name: "Documents",
                     url: "/documents",
                     icon: "",
                     parentId: 4,
                 },
-                {
-                    id: 6,
-                    name: " Document Types",
-                    url: "/document-types",
-                    icon: "",
-                    parentId: 4,
-                },
+               
             ]
         },
         {
