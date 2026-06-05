@@ -1,65 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "@tanstack/react-query";
-import { getDropdownBudgeting, getDropdownCategory, getDropdownCategoryByType, getDropdownWallet } from "../service/dropdown.service";
 import { useEffect, useState } from "react";
+import { getDropdownClient, getDropdownDocumentType } from "../service/dropdown.service";
 
 const useDropdown = (type?: string) => {
-    //dropdown budgeting
-    const { data: dropdownBudgeting, isPending: isPendingBudgeting } = useQuery({
-        queryKey: ['dropdown-budgeting'],
-        queryFn: () => getDropdownBudgeting(),
-        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
+    //dropdown client
+    const { data: dropdownClient, isPending: isPendingClient } = useQuery({
+        queryKey: ['dropdown-client'],
+        queryFn: () => getDropdownClient(),
+        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.full_name })),
     });
 
-    //dropdown category
-    const { data: dropdownCategory, isPending: isPendingCategory } = useQuery({
-        queryKey: ['dropdown-category'],
-        queryFn: () => getDropdownCategory(),
-        select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
-        
-    });
-
-    // dropdown category by type
-    const typeParam = type ?? "";
-   const [dropdownCategoryByType, setDropdownCategoryByType] = useState<{ value: string; label: string }[]>([]);
-
-    useEffect(() => {
-        if (!typeParam) return;
-
-        const fetchData = async () => {
-            try {
-                const data = await getDropdownCategoryByType(typeParam);
-                const format = data.map((item: any) => ({
-                    value: `${item.id}`,
-                    label: item.name
-                }));
-                setDropdownCategoryByType(format);
-            } catch (error) {
-                console.error("Error fetching categories:", error);
-            }
-        };
-
-        fetchData();
-    }, [typeParam]);
-
-    //dropdown wallet
-    const { data: dropdownWallet, isPending: isPendingWallet } = useQuery({
-        queryKey: ['dropdown-wallet'],
-        queryFn: () => getDropdownWallet(),
+    //dropdown document type
+    const { data: dropdownDocumentType, isPending: isPendingDocumentType } = useQuery({
+        queryKey: ['dropdown-document-type'],
+        queryFn: () => getDropdownDocumentType(),
         select: ( data ) => data.map((item:any) => ({ value: `${item.id}`, label: item.name })),
     });
-
-    const isPendingCategoryByType = false;
+    
     return {
-        dropdownBudgeting,
-        isPendingBudgeting,
-        dropdownCategory,
-        isPendingCategory,
-        dropdownCategoryByType,
-        isPendingCategoryByType,
-        dropdownWallet,
-        isPendingWallet,
-        
+        dropdownClient,
+        isPendingClient,
+        dropdownDocumentType,
+        isPendingDocumentType
     };
 };
 

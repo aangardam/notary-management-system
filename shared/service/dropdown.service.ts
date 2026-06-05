@@ -3,10 +3,10 @@
 import { createClient } from "@/shared/lib/supabase/client";
 
 const supabase = createClient();
-//dropdown budgeting
-export const getDropdownBudgeting = async () => {
+//dropdown Client
+export const getDropdownClient = async () => {
     const { data, error } = await supabase
-        .from('budgeting')
+        .from('clients')
         .select('*')
     if (error) {
         throw error;
@@ -14,33 +14,10 @@ export const getDropdownBudgeting = async () => {
     return data;
 };
 
-//dropdown category
-export const getDropdownCategory = async () => {
+//dropdown document type
+export const getDropdownDocumentType = async () => {
     const { data, error } = await supabase
-        .from('category')
-        .select('*')
-    if (error) {
-        throw error;
-    }
-    return data;
-};
-
-// get dropdown category by type
-export const getDropdownCategoryByType = async (type: string) => {
-    const { data, error } = await supabase
-        .from('category')
-        .select('*')
-        .eq('type', type)
-    if (error) {
-        throw error;
-    }
-    return data;
-};
-
-// get dropdown wallet 
-export const getDropdownWallet = async () => {
-    const { data, error } = await supabase
-        .from('wallets')
+        .from('document_types')
         .select('*')
     if (error) {
         throw error;

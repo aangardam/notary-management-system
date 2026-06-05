@@ -61,7 +61,7 @@ const useSidebarCustom = () => {
                 {
                     id: 5,
                     name: "Documents",
-                    url: "/documents",
+                    url: "/document",
                     icon: "",
                     parentId: 4,
                 },
